@@ -9,7 +9,8 @@ import Input from '../Input/Input';
 
 import './Chat.css';
 
-const ENDPOINT = 'localhost:5000';
+const ENDPOINT = 'https://dark-arena.herokuapp.com/';
+
 
 let socket;
 
@@ -23,7 +24,7 @@ const Chat = ({ location }) => {
   useEffect(() => {
     const { name, room } = queryString.parse(location.search);
 
-    socket = io(ENDPOINT);
+    socket = io(ENDPOINT, {transport: ['websocket']});
 
     setRoom(room);
     setName(name)
