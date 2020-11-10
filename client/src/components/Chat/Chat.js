@@ -11,7 +11,6 @@ import './Chat.css';
 
 const ENDPOINT = 'https://dark-arena.herokuapp.com/';
 
-
 let socket;
 
 const Chat = ({ location }) => {
@@ -24,7 +23,7 @@ const Chat = ({ location }) => {
   useEffect(() => {
     const { name, room } = queryString.parse(location.search);
 
-    socket = io(ENDPOINT, {transport: ['websocket']});
+    socket = io(ENDPOINT, {transports: ['websocket']});
 
     setRoom(room);
     setName(name)
